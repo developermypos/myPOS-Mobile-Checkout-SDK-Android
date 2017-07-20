@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android           ="http://schemas.android.com/apk/res/android"
+    android:orientation     ="vertical"
+    android:layout_width    ="wrap_content"
+    android:layout_height   ="wrap_content"
+    android:gravity         ="center">
+
+    <TextView
+        android:id                  ="@+id/transaction_reference_title"
+        android:layout_width        ="match_parent"
+        android:layout_height       ="wrap_content"
+        android:layout_marginTop    ="20dip"
+        android:layout_marginLeft   ="15dip"
+        android:layout_marginRight  ="15dip"
+        android:textColor           ="@color/myposEdtTitleTextColor"
+        android:text                ="Transaction reference"/>
+
+    <EditText
+        android:id                  ="@+id/transaction_reference_edt"
+        android:layout_width        ="match_parent"
+        android:layout_height       ="wrap_content"
+        android:layout_marginTop    ="10dip"
+        android:layout_marginLeft   ="15dip"
+        android:layout_marginRight  ="15dip"
+        android:maxLength           ="15"
+        android:maxLines            ="1"
+        android:inputType           ="text"
+        android:layout_gravity      ="bottom"
+        android:background          ="@null"
+        android:textColorHint       ="@color/myposEditTextHintColor"
+        android:textColor           ="@color/myposEditTextColor"
+        android:hint                ="Enter transaction reference"/>
+
+    <View
+        android:id                  ="@+id/transaction_reference_underline"
+        android:layout_width        ="match_parent"
+        android:layout_height       ="1dip"
+        android:layout_marginLeft   ="10dip"
+        android:layout_marginRight  ="10dip"
+        android:layout_marginTop    ="5dip"
+        android:layout_marginBottom ="20dip"
+        android:background          ="@color/myposUnderlineColor"/>
+
+    <TextView
+        android:id                  ="@+id/amount_title"
+        android:layout_width        ="match_parent"
+        android:layout_height       ="wrap_content"
+        android:layout_marginTop    ="10dip"
+        android:layout_marginLeft   ="15dip"
+        android:layout_marginRight  ="15dip"
+        android:textColor           ="@color/myposEdtTitleTextColor"
+        android:text                ="Amount"/>
+
+    <LinearLayout
+        android:layout_width        ="match_parent"
+        android:layout_height       ="wrap_content"
+        android:layout_marginTop    ="10dip"
+        android:layout_marginLeft   ="15dip"
+        android:layout_marginRight  ="15dip"
+        android:orientation         ="horizontal">
+
+        <EditText
+            android:id                  ="@+id/amount_edt"
+            android:layout_width        ="0dip"
+            android:layout_height       ="wrap_content"
+            android:layout_weight       ="1"
+            android:maxLength           ="15"
+            android:maxLines            ="1"
+            android:inputType           ="numberDecimal"
+            android:layout_gravity      ="bottom"
+            android:background          ="@null"
+            android:textColorHint       ="@color/myposEditTextHintColor"
+            android:textColor           ="@color/myposEditTextColor"
+            android:hint                ="Enter amount"/>
+
+        <TextView
+            android:id                  ="@+id/currency_txt"
+            android:layout_width        ="wrap_content"
+            android:layout_height       ="wrap_content"
+            android:layout_marginLeft   ="5dip"
+            android:textSize            ="18sp"
+            android:textColor           ="@color/myposEditTextColor"
+            android:text                ="EUR"/>
+
+    </LinearLayout>
+
+    <View
+        android:id                  ="@+id/amount_underline"
+        android:layout_width        ="match_parent"
+        android:layout_height       ="1dip"
+        android:layout_marginLeft   ="10dip"
+        android:layout_marginRight  ="10dip"
+        android:layout_marginTop    ="5dip"
+        android:layout_marginBottom ="20dip"
+        android:background          ="@color/myposUnderlineColor"/>
+
+    <TextView
+        android:id                  ="@+id/order_id_title"
+        android:layout_width        ="match_parent"
+        android:layout_height       ="wrap_content"
+        android:layout_marginTop    ="10dip"
+        android:layout_marginLeft   ="15dip"
+        android:layout_marginRight  ="15dip"
+        android:textColor           ="@color/myposEdtTitleTextColor"
+        android:text                ="Order ID(Optional)"/>
+
+    <EditText
+        android:id                  ="@+id/order_id_edt"
+        android:layout_width        ="match_parent"
+        android:layout_height       ="wrap_content"
+        android:layout_marginTop    ="10dip"
+        android:layout_marginLeft   ="15dip"
+        android:layout_marginRight  ="15dip"
+        android:maxLength           ="15"
+        android:maxLines            ="1"
+        android:inputType           ="text"
+        android:layout_gravity      ="bottom"
+        android:background          ="@null"
+        android:textColorHint       ="@color/myposEditTextHintColor"
+        android:textColor           ="@color/myposEditTextColor"
+        android:hint                ="Enter order ID"/>
+
+    <View
+        android:id                  ="@+id/order_id_underline"
+        android:layout_width        ="match_parent"
+        android:layout_height       ="1dip"
+        android:layout_marginLeft   ="10dip"
+        android:layout_marginRight  ="10dip"
+        android:layout_marginTop    ="5dip"
+        android:layout_marginBottom ="20dip"
+        android:background          ="@color/myposUnderlineColor"/>
+
+
+</LinearLayout>

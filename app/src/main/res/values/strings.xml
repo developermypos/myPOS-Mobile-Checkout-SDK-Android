@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Mobile Checkout Demo</string>
+    <string name="refund_successful">Refund successful</string>
+    <string name="card_stored_successfully_card_token">Card stored successfully - %1$s</string>
+    <string name="card_updated_successfully_card_token">Card updated successfully - %1$s</string>
+</resources>

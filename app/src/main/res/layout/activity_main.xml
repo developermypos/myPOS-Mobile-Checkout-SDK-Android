@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android           ="http://schemas.android.com/apk/res/android"
+    xmlns:app               ="http://schemas.android.com/apk/res-auto"
+    android:id              ="@+id/activity_main"
+    android:layout_width    ="match_parent"
+    android:layout_height   ="match_parent"
+    android:background      ="@color/white">
+
+    <android.support.v7.widget.Toolbar
+        android:id                  ="@+id/toolbar"
+        android:layout_width        ="match_parent"
+        android:layout_height       ="?attr/actionBarSize"
+        android:background          ="@color/colorPrimary"
+        app:contentInsetLeft        ="0dp"
+        app:contentInsetStart       ="0dp">
+
+        <LinearLayout
+            android:id              ="@+id/title_layout"
+            android:layout_width    ="match_parent"
+            android:layout_height   ="match_parent"
+            android:orientation     ="horizontal"
+            android:gravity         ="center_vertical">
+
+            <ImageButton
+                android:id                  ="@+id/back_button"
+                android:layout_width        ="wrap_content"
+                android:layout_height       ="wrap_content"
+                android:padding             ="10dip"
+                android:layout_gravity      ="center_vertical"
+                android:src                 ="@mipmap/back_arrow_icon"
+                android:background          ="?android:attr/actionBarItemBackground"
+                android:visibility          ="gone"/>
+
+            <TextView
+                android:id                  ="@+id/toolbar_title_text_view"
+                android:layout_width        ="0dp"
+                android:layout_height       ="wrap_content"
+                android:layout_weight       ="1"
+                android:layout_marginLeft   ="20dip"
+                android:text                ="Mobile Checkout Demo"
+                android:textColor           ="@color/white"
+                android:textSize            ="20sp"/>
+
+            <ImageButton
+                android:id                  ="@+id/reversal_button"
+                android:layout_width        ="wrap_content"
+                android:layout_height       ="wrap_content"
+                android:padding             ="10dip"
+                android:layout_gravity      ="center_vertical"
+                android:src                 ="@mipmap/back_arrow_icon"
+                android:background          ="?android:attr/actionBarItemBackground"
+                android:visibility          ="gone"/>
+
+            <ImageButton
+                android:id                  ="@+id/menu_button"
+                android:layout_width        ="wrap_content"
+                android:layout_height       ="wrap_content"
+                android:padding             ="10dip"
+                android:layout_marginRight  ="5dip"
+                android:layout_gravity      ="center_vertical"
+                android:src                 ="@mipmap/menu_button"
+                android:background          ="?android:attr/actionBarItemBackground"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width            ="match_parent"
+        android:layout_height           ="match_parent"
+        android:orientation             ="vertical"
+        android:gravity                 ="center_horizontal"
+        android:layout_below            ="@id/toolbar">
+
+        <ListView
+            android:id              ="@+id/shop_items_listview"
+            android:layout_width    ="match_parent"
+            android:layout_height   ="match_parent"
+            android:listSelector    ="#00000000"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id                          ="@+id/checkout_button"
+        android:layout_width                ="match_parent"
+        android:layout_height               ="?attr/actionBarSize"
+        android:layout_alignParentBottom    ="true"
+        android:background                  ="@color/colorPrimary"
+        android:visibility                  ="gone">
+
+        <TextView
+            android:id                          ="@+id/button_title"
+            android:layout_width                ="wrap_content"
+            android:layout_height               ="wrap_content"
+            android:layout_centerInParent       ="true"
+            android:text                        ="CheckOut"
+            android:textAllCaps                 ="true"
+            android:textColor                   ="@color/white"
+            android:textSize                    ="18sp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id              ="@+id/progress_bar"
+        android:layout_width    ="match_parent"
+        android:layout_height   ="match_parent"
+        android:background      ="#77000000"
+        android:visibility      ="gone"
+        android:clickable       ="true">
+
+        <ProgressBar
+            android:layout_width            ="wrap_content"
+            android:layout_height           ="wrap_content"
+            android:progress                ="0"
+            android:layout_centerInParent   ="true"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id                          ="@+id/version_text"
+        android:layout_width                ="wrap_content"
+        android:layout_height               ="wrap_content"
+        android:layout_alignParentBottom    ="true"
+        android:layout_alignParentRight     ="true"
+        android:layout_marginRight          ="10dip"
+        android:layout_marginBottom         ="10dip"
+        android:text                        ="v. 1.4"/>
+
+</RelativeLayout>

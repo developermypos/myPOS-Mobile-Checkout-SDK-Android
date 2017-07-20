@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android           ="http://schemas.android.com/apk/res/android"
+    android:orientation     ="vertical"
+    android:layout_width    ="wrap_content"
+    android:layout_height   ="wrap_content"
+    android:gravity         ="center">
+
+    <TextView
+        android:layout_width        ="match_parent"
+        android:layout_height       ="wrap_content"
+        android:layout_marginTop    ="20dip"
+        android:layout_marginLeft   ="15dip"
+        android:layout_marginRight  ="15dip"
+        android:textColor           ="@color/myposEdtTitleTextColor"
+        android:text                ="Transaction type"/>
+    
+    <LinearLayout
+        android:layout_width        ="match_parent"
+        android:layout_height       ="wrap_content"
+        android:layout_marginLeft   ="10dip"
+        android:layout_marginRight  ="10dip"
+        android:orientation         ="horizontal">
+
+        <CheckBox
+            android:id              ="@+id/purchase_checkbox"
+            android:layout_width    ="0dip"
+            android:layout_height   ="wrap_content"
+            android:layout_weight   ="1"
+            android:text            ="Purchase"
+            android:textColor       ="@color/myposEditTextColor"
+            android:checked         ="true"/>
+
+        <CheckBox
+            android:id              ="@+id/refund_checkbox"
+            android:layout_width    ="0dip"
+            android:layout_height   ="wrap_content"
+            android:layout_weight   ="1"
+            android:textColor       ="@color/myposEditTextColor"
+            android:text            ="Refund"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id                  ="@+id/order_id_title"
+        android:layout_width        ="match_parent"
+        android:layout_height       ="wrap_content"
+        android:layout_marginTop    ="20dip"
+        android:layout_marginLeft   ="15dip"
+        android:layout_marginRight  ="15dip"
+        android:textColor           ="@color/myposEdtTitleTextColor"
+        android:text                ="Order ID"/>
+
+    <EditText
+        android:id                  ="@+id/order_id_edt"
+        android:layout_width        ="match_parent"
+        android:layout_height       ="wrap_content"
+        android:layout_marginTop    ="10dip"
+        android:layout_marginLeft   ="15dip"
+        android:layout_marginRight  ="15dip"
+        android:maxLength           ="15"
+        android:maxLines            ="1"
+        android:inputType           ="text"
+        android:layout_gravity      ="bottom"
+        android:background          ="@null"
+        android:textColorHint       ="@color/myposEditTextHintColor"
+        android:textColor           ="@color/myposEditTextColor"
+        android:hint                ="Enter order ID"/>
+
+    <View
+        android:id                  ="@+id/order_id_underline"
+        android:layout_width        ="match_parent"
+        android:layout_height       ="1dip"
+        android:layout_marginLeft   ="10dip"
+        android:layout_marginRight  ="10dip"
+        android:layout_marginTop    ="5dip"
+        android:layout_marginBottom ="20dip"
+        android:background          ="@color/myposUnderlineColor"/>
+
+</LinearLayout>

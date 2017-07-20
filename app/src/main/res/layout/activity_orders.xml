@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android           ="http://schemas.android.com/apk/res/android"
+    xmlns:app               ="http://schemas.android.com/apk/res-auto"
+    android:layout_width    ="match_parent"
+    android:layout_height   ="match_parent"
+    android:background      ="@color/white">
+
+    <android.support.v7.widget.Toolbar
+        android:id                  ="@+id/toolbar"
+        android:layout_width        ="match_parent"
+        android:layout_height       ="?attr/actionBarSize"
+        android:background          ="@color/colorPrimary"
+        app:contentInsetLeft        ="0dp"
+        app:contentInsetStart       ="0dp">
+
+        <LinearLayout
+            android:id              ="@+id/title_layout"
+            android:layout_width    ="match_parent"
+            android:layout_height   ="match_parent"
+            android:orientation     ="horizontal"
+            android:gravity         ="center_vertical">
+
+            <ImageButton
+                android:id                  ="@+id/back_button"
+                android:layout_width        ="wrap_content"
+                android:layout_height       ="wrap_content"
+                android:padding             ="10dip"
+                android:layout_gravity      ="center_vertical"
+                android:src                 ="@mipmap/back_arrow_icon"
+                android:background          ="?android:attr/actionBarItemBackground"
+                android:visibility          ="visible"/>
+
+            <TextView
+                android:id                  ="@+id/toolbar_title_text_view"
+                android:layout_width        ="0dp"
+                android:layout_height       ="wrap_content"
+                android:layout_weight       ="1"
+                android:layout_marginLeft   ="20dip"
+                android:text                ="Orders"
+                android:textColor           ="@color/white"
+                android:textSize            ="20sp"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width    ="match_parent"
+        android:layout_height   ="match_parent"
+        android:layout_below    ="@id/toolbar"
+        android:orientation     ="vertical">
+
+        <ListView
+            android:id                  ="@+id/orders_list_view"
+            android:layout_width        ="match_parent"
+            android:layout_height       ="match_parent"
+            android:listSelector        ="#00000000"/>
+
+        <View
+            android:layout_width        ="match_parent"
+            android:layout_height       ="1dip"
+            android:background          ="?android:attr/listDivider" />
+
+        <TextView
+            android:id              ="@+id/empty_text"
+            android:layout_width    ="match_parent"
+            android:layout_height   ="match_parent"
+            android:text            ="No orders"
+            android:textSize        ="18sp"
+            android:gravity         ="center"
+            android:visibility      ="gone"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

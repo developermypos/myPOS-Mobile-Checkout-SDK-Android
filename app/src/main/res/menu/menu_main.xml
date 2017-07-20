@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/store_card"
+        android:title="Store new card" />
+    <item android:id="@+id/update_card"
+        android:title="Update stored card" />
+    <item android:id="@+id/refund"
+        android:title="Refund" />
+    <item android:id="@+id/get_transaction_status"
+        android:title="Transaction status" />
+    <item android:id="@+id/orders"
+        android:title="Orders" />
+</menu>
