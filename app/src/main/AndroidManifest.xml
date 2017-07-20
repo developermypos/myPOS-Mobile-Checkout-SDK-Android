@@ -17,6 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".CheckoutActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".OrdersActivity" android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>
+
