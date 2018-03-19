@@ -152,8 +152,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     int status = data.getIntExtra(MyPos.INTENT_EXTRA_STATUS,  MyPos.STATUS_INTERNAL_API_ERROR);
     
     if( status == MyPos.STATUS_SUCCESS) {
-        String cardToken      = data.getStringExtra(MyPos.INTENT_EXTRA_CARD_TOKEN);
-        String cardCustomName = data.getStringExtra(MyPos.INTENT_EXTRA_CARD_CUSTOM_NAME);
+        StoredCardModel storedCard = data.getParcelableExtra(MyPos.INTENT_EXTRA_STORED_CARD);
     }
  ```
  
