@@ -36,6 +36,7 @@ import eu.leupau.mobilepaymentssdk.IPCGetTransactionStatus;
 import eu.leupau.mobilepaymentssdk.MyPos;
 import eu.leupau.mobilepaymentssdk.RefundActivity;
 import eu.leupau.mobilepaymentssdk.StoreCardActivity;
+import eu.leupau.mobilepaymentssdk.StoredCardModel;
 import eu.leupau.mobilepaymentssdk.UpdateCardActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -51,8 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Toast mToast;
 
-    private String mCustomNameCardUpdated  = "";
-    private String mOrderId                = "";
+    private String mOrderId = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,24 +142,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if( resultCode == RESULT_OK  && requestCode == MyPos.REQUEST_CODE_STORE_CARD){
             int status = data.getIntExtra(MyPos.INTENT_EXTRA_STATUS, -100);
             if( status == MyPos.STATUS_SUCCESS) {
-                String cardToken = data.getStringExtra(MyPos.INTENT_EXTRA_CARD_TOKEN);
-                String cardCustomName = data.getStringExtra(MyPos.INTENT_EXTRA_CARD_CUSTOM_NAME);
-
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-                Set<String> cardTokens = sharedPreferences.getStringSet("card_tokens", null);
-
-                if (cardTokens == null)
-                    cardTokens = new LinkedHashSet<>();
-
-                Set<String> newCardTokens = new LinkedHashSet<>();
-                newCardTokens.addAll(cardTokens);
-                newCardTokens.add(cardToken + ";" + cardCustomName);
-
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putStringSet("card_tokens", newCardTokens);
-                editor.apply();
-
-                Utils.showToastMessage(MainActivity.this, getString(R.string.card_stored_successfully_card_token, cardToken));
+                StoredCardModel storedCard = data.getParcelableExtra(MyPos.INTENT_EXTRA_STORED_CARD);
+                saveStoredCardDataInPreferences(storedCard);
             }
             else{
                 Utils.showToastMessage(MainActivity.this, "Operation failed status: " + status);
@@ -168,26 +152,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if( resultCode == RESULT_OK  && requestCode == MyPos.REQUEST_CODE_UPDATE_CARD){
             int status = data.getIntExtra(MyPos.INTENT_EXTRA_STATUS, -100);
             if( status == MyPos.STATUS_SUCCESS) {
-                String cardToken = data.getStringExtra(MyPos.INTENT_EXTRA_CARD_TOKEN);
+                StoredCardModel newStoredCard = data.getParcelableExtra(MyPos.INTENT_EXTRA_STORED_CARD);
                 String oldCardToken = data.getStringExtra(MyPos.INTENT_EXTRA_OLD_CARD_TOKEN);
-                String cardCustomName = data.getStringExtra(MyPos.INTENT_EXTRA_CARD_CUSTOM_NAME);
-
-                Utils.showToastMessage(MainActivity.this, getString(R.string.card_updated_successfully_card_token, cardToken));
-
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-                Set<String> cardTokens = sharedPreferences.getStringSet("card_tokens", null);
-
-                if (cardTokens == null)
-                    cardTokens = new LinkedHashSet<>();
-
-                cardTokens.remove(oldCardToken + ";" + mCustomNameCardUpdated);
-                Set<String> newCardTokens = new LinkedHashSet<>();
-                newCardTokens.addAll(cardTokens);
-                newCardTokens.add(cardToken + ";" + cardCustomName);
-
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putStringSet("card_tokens", newCardTokens);
-                editor.apply();
+                updateStoredCardListInPreferences(newStoredCard, oldCardToken);
             }
             else{
                 Utils.showToastMessage(MainActivity.this, "Operation failed status: " + status);
@@ -217,9 +184,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private void saveStoredCardDataInPreferences(StoredCardModel storedCard){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Set<String> storedCards = sharedPreferences.getStringSet(Utils.PREFERENCES_STORED_CARDS, null);
+
+        if (storedCards == null)
+            storedCards = new LinkedHashSet<>();
+
+        Set<String> newStoredCards = new LinkedHashSet<>();
+        newStoredCards.addAll(storedCards);
+        newStoredCards.add(storedCard.toJSON().toString());
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putStringSet(Utils.PREFERENCES_STORED_CARDS, newStoredCards);
+        editor.apply();
+
+        Utils.showToastMessage(MainActivity.this, getString(R.string.card_stored_successfully_card_token, storedCard.getCardToken()));
+    }
+
+    private void updateStoredCardListInPreferences(StoredCardModel newStoredCard, String oldStoredCardToken){
+        Utils.showToastMessage(MainActivity.this, getString(R.string.card_updated_successfully_card_token, newStoredCard.getCardToken()));
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Set<String> storedCards = sharedPreferences.getStringSet(Utils.PREFERENCES_STORED_CARDS, null);
+
+        for (String storedCard : storedCards) {
+            if( new StoredCardModel(storedCard).getCardToken().equalsIgnoreCase(oldStoredCardToken)){
+                storedCards.remove(storedCard);
+            }
+        }
+
+        Set<String> newStoredCards = new LinkedHashSet<>();
+        newStoredCards.addAll(storedCards);
+        newStoredCards.add(newStoredCard.toJSON().toString());
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putStringSet(Utils.PREFERENCES_STORED_CARDS, newStoredCards);
+        editor.apply();
+    }
+
     public void showMenuPopup(View view){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        final Set<String> cardTokens = sharedPreferences.getStringSet("card_tokens", null);
+        final Set<String> storedCards = sharedPreferences.getStringSet(Utils.PREFERENCES_STORED_CARDS, null);
 
         PopupMenu popup = new PopupMenu(this, view);
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -246,7 +252,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         popup.getMenuInflater().inflate(R.menu.menu_main, popup.getMenu());
         popup.show();
 
-        if( cardTokens == null )
+        if( storedCards == null )
             popup.getMenu().removeItem(R.id.update_card);
     }
 
@@ -271,18 +277,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void selectCardToUpdate(){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        final Set<String> cardTokens = sharedPreferences.getStringSet("card_tokens", null);
+        final Set<String> storedCards = sharedPreferences.getStringSet(Utils.PREFERENCES_STORED_CARDS, null);
 
-        final ArrayList<String> sortedCardTokens = new ArrayList<>(cardTokens);
-        Collections.sort(sortedCardTokens, new Comparator<String>(){
-            public int compare(String obj1, String obj2) {
-                return obj1.split(";")[1].compareToIgnoreCase(obj2.split(";")[1]);
+        final ArrayList<StoredCardModel> storedCardsList = new ArrayList<>();
+
+        for (String storedCard : storedCards) {
+            storedCardsList.add(new StoredCardModel(storedCard));
+        }
+
+        Collections.sort(storedCardsList, new Comparator<StoredCardModel>(){
+            public int compare(StoredCardModel obj1, StoredCardModel obj2) {
+                return obj1.getCardCustomName().compareToIgnoreCase(obj2.getCardCustomName());
             }
         });
 
-        CharSequence paymentOptions[] = new CharSequence[sortedCardTokens.size()];
-        for( int i = 0; i < sortedCardTokens.size(); i++ ){
-            paymentOptions[i] = sortedCardTokens.toArray()[i].toString().split(";")[1];
+        CharSequence paymentOptions[] = new CharSequence[storedCardsList.size()];
+        for( int i = 0; i < storedCardsList.size(); i++ ){
+            paymentOptions[i] =
+                    storedCardsList.get(i).getCardCustomName() +
+                            "(*" + storedCardsList.get(i).getCardPanLastDigits() +
+                            ", " + storedCardsList.get(i).getCardExpDate().substring(0,2) +
+                            "/" + storedCardsList.get(i).getCardExpDate().substring(2,4) +
+                            ", " + storedCardsList.get(i).getCardType() + ")";
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -290,8 +306,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         builder.setItems(paymentOptions, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int position) {
-                mCustomNameCardUpdated = sortedCardTokens.toArray()[position].toString().split(";")[1];
-                myPOSUpdateStoredCard(sortedCardTokens.toArray()[position].toString().split(";")[0]);
+                myPOSUpdateStoredCard(storedCardsList.get(position).getCardToken());
             }
         });
         builder.show();

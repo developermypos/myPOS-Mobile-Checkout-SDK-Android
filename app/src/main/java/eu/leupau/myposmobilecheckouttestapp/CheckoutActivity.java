@@ -21,6 +21,7 @@ import java.util.Set;
 import eu.leupau.mobilepaymentssdk.CartItem;
 import eu.leupau.mobilepaymentssdk.MyPos;
 import eu.leupau.mobilepaymentssdk.PurchaseActivity;
+import eu.leupau.mobilepaymentssdk.StoredCardModel;
 
 /**
  * Created by kamen.troshev on 19.12.2016 г..
@@ -95,24 +96,29 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
 
     private void selectPaymentOption(){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        final Set<String> cardTokens = sharedPreferences.getStringSet("card_tokens", null);
+        final Set<String> storedCards = sharedPreferences.getStringSet(Utils.PREFERENCES_STORED_CARDS, null);
 
-        if( cardTokens == null ) {
+        if( storedCards == null ) {
             myPOSPurchase(null);
             return;
         }
 
-        final ArrayList<String> sortedCardTokens = new ArrayList<>(cardTokens);
-        Collections.sort(sortedCardTokens, new Comparator<String>(){
-            public int compare(String obj1, String obj2) {
-                return obj1.split(";")[1].compareToIgnoreCase(obj2.split(";")[1]);
+        final ArrayList<StoredCardModel> storedCardsList = new ArrayList<>();
+
+        for (String storedCard : storedCards) {
+            storedCardsList.add(new StoredCardModel(storedCard));
+        }
+
+        Collections.sort(storedCardsList, new Comparator<StoredCardModel>(){
+            public int compare(StoredCardModel obj1, StoredCardModel obj2) {
+                return obj1.getCardCustomName().compareToIgnoreCase(obj2.getCardCustomName());
             }
         });
 
-        CharSequence paymentOptions[] = new CharSequence[sortedCardTokens.size() + 1];
+        CharSequence paymentOptions[] = new CharSequence[storedCardsList.size() + 1];
         paymentOptions[0] = "New card";
-        for( int i = 0; i < sortedCardTokens.size(); i++ ){
-            paymentOptions[i+1] = sortedCardTokens.toArray()[i].toString().split(";")[1];
+        for( int i = 0; i < storedCardsList.size(); i++ ){
+            paymentOptions[i+1] = storedCardsList.get(i).getCardCustomName();
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -123,7 +129,7 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
                 if( position == 0 )
                     myPOSPurchase(null);
                 else
-                    myPOSPurchase(sortedCardTokens.toArray()[position-1].toString().split(";")[0]);
+                    myPOSPurchase(storedCardsList.get(position-1).getCardToken());
             }
         });
         builder.show();
