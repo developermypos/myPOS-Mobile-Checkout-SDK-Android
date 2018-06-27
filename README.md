@@ -25,6 +25,10 @@ Accepting mobile payments for merchants
   
 * [UI customization](#ui-customization)
 
+  * [Hide custom name field](#hide-custom-name-field)
+  
+  * [Set custom banner](#set-custom-banner)
+
   * [Configuring displayed colors](#configuring-displayed-colors)
   
   * [Configuring displayed text](#configuring-displayed-text)
@@ -257,6 +261,20 @@ Use myPOS™ Mobile Checkout Android SDK UI components for a frictionless checko
 Built-in features include quick data entry, optional security checks and fraud prevention that let you focus on developing other areas of your app.
 
 The myPOS™ Mobile Checkout Android SDK supports a range of UI customization options to allow you to match payment screen appearance to your app's branding.
+
+## Hide custom name field
+
+Pass true in the intent opening StoreCardActivity or PurchaseActivity if you don't want to show 'Custom name' field like this:
+```Java
+intent.putExtra(MyPos.INTENT_EXTRA_WITHOUT_CUSTOM_NAME, true);
+```
+
+## Set custom banner
+
+There is a possibility to set your merchant brand logo or banner in the action bar on StoreCardActivity, UpdateCardActivity and PurchaseActivty. The image should be added in your project as a resource and the resource ID should be passed like this:
+```Java
+intent.putExtra(MyPos.INTENT_EXTRA_CUSTOM_LOGO_RESOURCE, R.drawable.merchang_banner);
+```
 
 ## Configuring displayed colors
 
