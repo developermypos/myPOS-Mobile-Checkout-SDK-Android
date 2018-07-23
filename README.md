@@ -300,6 +300,9 @@ Depending on the styles used in your app, you could customize colors of the foll
 <color name="myposEdtTitleTextColor"  tools:override="true">#bbbbbb</color>
 <color name="myposUnderlineColor"     tools:override="true">#bbbbbb</color>
 <color name="myposButtonColor"        tools:override="true">#008000</color>
+<color name="myposButtonTextColor"    tools:override="true">#ffffff</color>
+<color name="myposTitleTextColor"     tools:override="true">#ffffff</color>
+<color name="myposBackgroundColor"    tools:override="true">#ffffff</color>
 ```
 
 ## Configuring displayed text
