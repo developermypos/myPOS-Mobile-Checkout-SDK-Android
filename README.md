@@ -9,6 +9,8 @@ Accepting mobile payments for merchants
 
 * [Integration](#integration)
   
+  * [Installation](#installation)
+  
   * [Requirements](#requirements)
   
   * [Setup](#setup)
@@ -64,6 +66,25 @@ Accepting mobile payments for merchants
   # Integration
   
   A “by appointment” test service is available which allows the validation of the myPOS™ Mobile Checkout Android SDK calls. Testers   should negotiate an exclusive access to the testing service and ensure monitoring by iCARD engineer.
+  
+  
+  ## Installation
+
+  Add the repository to your gradle dependencies:
+
+  ```java
+  allprojects {
+     repositories {
+        jcenter()
+     }
+  }
+  ```
+
+    Add the dependency to a module:
+
+  ```java
+  implementation 'com.mypos:checkoutsdk:1.0.0'
+  ```
   
   ## Requirements
   
