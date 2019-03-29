@@ -1,4 +1,4 @@
-package eu.leupau.myposmobilecheckouttestapp;
+package com.mypos.myposmobilecheckouttestapp;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,7 +16,7 @@ import java.text.NumberFormat;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import eu.leupau.mobilepaymentssdk.Currency;
+import com.mypos.mobilepaymentssdk.Currency;
 
 /**
  * Created by kamen.troshev on 19.12.2016 г..
@@ -130,12 +130,12 @@ class Utils {
             @Override
             public void onFocusChange(View view, boolean focused) {
                 if( focused){
-                    title.setTextColor(ContextCompat.getColor(context, eu.leupau.mobilepaymentssdk.R.color.myposFocusedColor));
-                    underline.setBackgroundColor(ContextCompat.getColor(context, eu.leupau.mobilepaymentssdk.R.color.myposFocusedColor));
+                    title.setTextColor(ContextCompat.getColor(context, com.mypos.mobilepaymentssdk.R.color.myposFocusedColor));
+                    underline.setBackgroundColor(ContextCompat.getColor(context, com.mypos.mobilepaymentssdk.R.color.myposFocusedColor));
                 }
                 else{
-                    title.setTextColor(ContextCompat.getColor(context, eu.leupau.mobilepaymentssdk.R.color.myposEdtTitleTextColor));
-                    underline.setBackgroundColor(ContextCompat.getColor(context, eu.leupau.mobilepaymentssdk.R.color.myposUnderlineColor));
+                    title.setTextColor(ContextCompat.getColor(context, com.mypos.mobilepaymentssdk.R.color.myposEdtTitleTextColor));
+                    underline.setBackgroundColor(ContextCompat.getColor(context, com.mypos.mobilepaymentssdk.R.color.myposUnderlineColor));
                 }
             }
         });

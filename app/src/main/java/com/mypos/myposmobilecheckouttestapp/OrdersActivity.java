@@ -1,4 +1,4 @@
-package eu.leupau.myposmobilecheckouttestapp;
+package com.mypos.myposmobilecheckouttestapp;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;

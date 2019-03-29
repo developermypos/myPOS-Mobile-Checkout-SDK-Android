@@ -1,4 +1,4 @@
-package eu.leupau.myposmobilecheckouttestapp;
+package com.mypos.myposmobilecheckouttestapp;
 
 import org.junit.Test;
 

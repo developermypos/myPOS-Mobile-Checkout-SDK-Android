@@ -1,4 +1,4 @@
-package eu.leupau.myposmobilecheckouttestapp;
+package com.mypos.myposmobilecheckouttestapp;
 
 import android.os.Parcel;
 import android.os.Parcelable;

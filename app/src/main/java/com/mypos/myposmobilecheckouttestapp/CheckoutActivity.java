@@ -1,4 +1,4 @@
-package eu.leupau.myposmobilecheckouttestapp;
+package com.mypos.myposmobilecheckouttestapp;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -18,10 +18,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Set;
 
-import eu.leupau.mobilepaymentssdk.CartItem;
-import eu.leupau.mobilepaymentssdk.MyPos;
-import eu.leupau.mobilepaymentssdk.PurchaseActivity;
-import eu.leupau.mobilepaymentssdk.StoredCardModel;
+import com.mypos.mobilepaymentssdk.CartItem;
+import com.mypos.mobilepaymentssdk.MyPos;
+import com.mypos.mobilepaymentssdk.PurchaseActivity;
+import com.mypos.mobilepaymentssdk.StoredCardModel;
 
 /**
  * Created by kamen.troshev on 19.12.2016 г..

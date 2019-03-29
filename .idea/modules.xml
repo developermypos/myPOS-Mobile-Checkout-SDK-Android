@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MyPosMobileCheckoutTestApp.iml" filepath="$PROJECT_DIR$/MyPosMobileCheckoutTestApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/mobilepaymentssdk/mobilepaymentssdk.iml" filepath="$PROJECT_DIR$/mobilepaymentssdk/mobilepaymentssdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myPOS-Mobile-Checkout-SDK-Android.iml" filepath="$PROJECT_DIR$/myPOS-Mobile-Checkout-SDK-Android.iml" />
     </modules>
   </component>
 </project>

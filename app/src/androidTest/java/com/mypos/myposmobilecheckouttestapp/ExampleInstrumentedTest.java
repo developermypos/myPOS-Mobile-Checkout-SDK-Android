@@ -1,4 +1,4 @@
-package eu.leupau.myposmobilecheckouttestapp;
+package com.mypos.myposmobilecheckouttestapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("eu.leupau.myposmobilecheckouttestapp", appContext.getPackageName());
+        assertEquals("com.mypos.myposmobilecheckouttestapp", appContext.getPackageName());
     }
 }

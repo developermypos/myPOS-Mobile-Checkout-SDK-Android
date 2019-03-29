@@ -1,4 +1,4 @@
-package eu.leupau.myposmobilecheckouttestapp;
+package com.mypos.myposmobilecheckouttestapp;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -32,12 +32,12 @@ import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import eu.leupau.mobilepaymentssdk.IPCGetTransactionStatus;
-import eu.leupau.mobilepaymentssdk.MyPos;
-import eu.leupau.mobilepaymentssdk.RefundActivity;
-import eu.leupau.mobilepaymentssdk.StoreCardActivity;
-import eu.leupau.mobilepaymentssdk.StoredCardModel;
-import eu.leupau.mobilepaymentssdk.UpdateCardActivity;
+import com.mypos.mobilepaymentssdk.IPCGetTransactionStatus;
+import com.mypos.mobilepaymentssdk.MyPos;
+import com.mypos.mobilepaymentssdk.RefundActivity;
+import com.mypos.mobilepaymentssdk.StoreCardActivity;
+import com.mypos.mobilepaymentssdk.StoredCardModel;
+import com.mypos.mobilepaymentssdk.UpdateCardActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 

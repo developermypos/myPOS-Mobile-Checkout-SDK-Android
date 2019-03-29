@@ -1,4 +1,4 @@
-package eu.leupau.myposmobilecheckouttestapp;
+package com.mypos.myposmobilecheckouttestapp;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import eu.leupau.mobilepaymentssdk.CartItem;
+import com.mypos.mobilepaymentssdk.CartItem;
 
 /**
  * Created by kamen.troshev on 19.12.2016 г..
