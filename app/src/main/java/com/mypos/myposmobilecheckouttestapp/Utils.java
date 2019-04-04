@@ -11,12 +11,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mypos.mobilepaymentssdk.Currency;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.LinkedHashSet;
 import java.util.Set;
-
-import com.mypos.mobilepaymentssdk.Currency;
 
 /**
  * Created by kamen.troshev on 19.12.2016 г..
@@ -24,8 +24,8 @@ import com.mypos.mobilepaymentssdk.Currency;
 
 class Utils {
 
-    public static final String MYPOS_WALLET_NUMBER          = "40064699727";
-    public static final String MYPOS_SID                    = "71888";
+    public static final String MYPOS_WALLET_NUMBER          = "61938166610";
+    public static final String MYPOS_SID                    = "000000000000010";
     public static final String CURRENCY                     = Currency.EUR;
     public static final String LANGUAGE                     = "EN";
     public static final int KEY_INDEX                       = 1;
@@ -47,30 +47,31 @@ class Utils {
                      "RAymNw5EKoUFi0yyRR6vA57eaWi3oUlZqcHuXGkItjM=";
      */
     public static final String CLIENT_PRIVATE_KEY =
-            "MIICXQIBAAKBgQDqUfIswZ+7WFkhFMqxvBz6dY2gV0WdOCYMEajYGMbLtfjtaY/l" +
-                    "u2DIyBTyxhfdV1m+20Rm8tZx8sqSrglSwVXrwM0gxlPwLD5QXLrknmbB4JH1pYGV" +
-                    "HR5RmTKCTNqIDvnR5c8cG8byIwOhhyTl3XxlKJEvjkZX3R6p/fESU7n1xQIDAQAB" +
-                    "AoGAMNuPVHe295hPVU+BiBfCLxMNyc4IrOSFQmT4QL7BzL4PvmkRYQR2BMd7Xreh" +
-                    "SDyrcNlFZPXjcvT9+iGhvgikAlMYFBJwE3I9LcJY/rlG5HJQ3CR4fb2btN0kH8fZ" +
-                    "EgsCkS96PCxHgH4gQLcqNvJlJBnpa9K7WId4HkwjjkNjDCECQQD3CH+5S4AX7yzB" +
-                    "FSJKGvmH7nZ30GdFmKRSW8DJXlZbepxd/mTwR+2ThaTDA6RKpeRLmZas0m+eOFq+" +
-                    "9tYRV/vNAkEA8tNQPdUNefeAYzmubb51Y2Lf6iTp6RriXyfk8KtssWfwFTFe54kL" +
-                    "dismDEtn0SVAdGcpv229JGqYOpPnHUiZ2QJASQgTMoWWnfzQn1iPJZdp8/zUu0E6" +
-                    "dsHUuqBzk1S3dR3/gm5GCx9IpldZSWoXNRZsMsl6WSdxZjZE5bX1vXTkdQJBAKnB" +
-                    "gL85SoqRtHepw3+FPpuUa+VMmRoVaVwMj8iQjxQXDYhDU42aCSE7WQYPUSytVjoK" +
-                    "RO1G0ou62WFaNKAMOUECQQDdsLF7sWigPSlU7ymFsGrlYv3882mqqMhoCamNeg23" +
-                    "Se2FWdX6MMIG335+A7zK+8Vi5aicv1GjQtTSdh5xtUCL";
+            "MIICXAIBAAKBgQCf0TdcTuphb7X+Zwekt1XKEWZDczSGecfo6vQfqvraf5VPzcnJ" +
+                    "2Mc5J72HBm0u98EJHan+nle2WOZMVGItTa/2k1FRWwbt7iQ5dzDh5PEeZASg2UWe" +
+                    "hoR8L8MpNBqH6h7ZITwVTfRS4LsBvlEfT7Pzhm5YJKfM+CdzDM+L9WVEGwIDAQAB" +
+                    "AoGAYfKxwUtEbq8ulVrD3nnWhF+hk1k6KejdUq0dLYN29w8WjbCMKb9IaokmqWiQ" +
+                    "5iZGErYxh7G4BDP8AW/+M9HXM4oqm5SEkaxhbTlgks+E1s9dTpdFQvL76TvodqSy" +
+                    "l2E2BghVgLLgkdhRn9buaFzYta95JKfgyKGonNxsQA39PwECQQDKbG0Kp6KEkNgB" +
+                    "srCq3Cx2od5OfiPDG8g3RYZKx/O9dMy5CM160DwusVJpuywbpRhcWr3gkz0QgRMd" +
+                    "IRVwyxNbAkEAyh3sipmcgN7SD8xBG/MtBYPqWP1vxhSVYPfJzuPU3gS5MRJzQHBz" +
+                    "sVCLhTBY7hHSoqiqlqWYasi81JzBEwEuQQJBAKw9qGcZjyMH8JU5TDSGllr3jybx" +
+                    "FFMPj8TgJs346AB8ozqLL/ThvWPpxHttJbH8QAdNuyWdg6dIfVAa95h7Y+MCQEZg" +
+                    "jRDl1Bz7eWGO2c0Fq9OTz3IVLWpnmGwfW+HyaxizxFhV+FOj1GUVir9hylV7V0DU" +
+                    "QjIajyv/oeDWhFQ9wQECQCydhJ6NaNQOCZh+6QTrH3TC5MeBA1Yeipoe7+BhsLNr" +
+                    "cFG8s9sTxRnltcZl1dXaBSemvpNvBizn0Kzi8G3ZAgc=";
 
     public static final String SERVER_PUBLIC_KEY =
-            "MIIBqzCCARSgAwIBAgIAMA0GCSqGSIb3DQEBBQUAMBwxCzAJBgNVBAYTAkJHMQ0w" +
-                    "CwYDVQQKEwRpUGF5MB4XDTE3MDkyNjA4MTYzNloXDTI3MDkyNDA4MTYzNlowHDEL" +
-                    "MAkGA1UEBhMCQkcxDTALBgNVBAoTBGlQYXkwgZ8wDQYJKoZIhvcNAQEBBQADgY0A" +
-                    "MIGJAoGBALZ3wiU7Y8gdyAQm3KObXsOVCVB5x80vC+EujdCYJ9X97o4TDK3lvfP6" +
-                    "AHnXIQAqoNtwYV+8RMhYtGGb8J5ba3xUteLQy7abzQtwdaRrd2oyX36IbYR/0Vuk" +
-                    "dAt6uai1C3JIDbv8yVCLCIm0m52cf+338H1zZ6V4ntoWUZ4iYDoFAgMBAAEwDQYJ" +
-                    "KoZIhvcNAQEFBQADgYEAIsizY7xKZTaaAfCsS44W3a62QGGDhQ/GIH++CgCNH0L3" +
-                    "tJJ1+CUlAXJ57NfX+t8d6tIuuNt2r3kcUeDtgCAq8k+FsvQETJ9L51eGBRaokzhZ" +
-                    "kXRPx+1tdXs+bUGhDTPKImh/EH5+KZ5FSL39oViaVoLADZcLSpM6yk7MFjIc8uY=";
+            "MIIBsTCCARoCCQCCPjNttGNQWDANBgkqhkiG9w0BAQsFADAdMQswCQYDVQQGEwJC" +
+                    "RzEOMAwGA1UECgwFbXlQT1MwHhcNMTgxMDEyMDcwOTEzWhcNMjgxMDA5MDcwOTEz" +
+                    "WjAdMQswCQYDVQQGEwJCRzEOMAwGA1UECgwFbXlQT1MwgZ8wDQYJKoZIhvcNAQEB" +
+                    "BQADgY0AMIGJAoGBAML+VTmiY4yChoOTMZTXAIG/mk+xf/9mjwHxWzxtBJbNncNK" +
+                    "0OLI0VXYKW2GgVklGHHQjvew1hTFkEGjnCJ7f5CDnbgxevtyASDGst92a6xcAedE" +
+                    "adP0nFXhUz+cYYIgIcgfDcX3ZWeNEF5kscqy52kpD2O7nFNCV+85vS4duJBNAgMB" +
+                    "AAEwDQYJKoZIhvcNAQELBQADgYEACj0xb+tNYERJkL+p+zDcBsBK4RvknPlpk+YP" +
+                    "ephunG2dBGOmg/WKgoD1PLWD2bEfGgJxYBIg9r1wLYpDC1txhxV+2OBQS86KULh0" +
+                    "NEcr0qEY05mI4FlE+D/BpT/+WFyKkZug92rK0Flz71Xy/9mBXbQfm+YK6l9roRYd" +
+                    "J4sHeQc=";
 
     /*public static final String SERVER_PUBLIC_KEY =
             "MIIBkDCB+qADAgECAgAwDQYJKoZIhvcNAQEFBQAwDzENMAsGA1UEChMEaVBheTAe" +
