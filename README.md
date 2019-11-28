@@ -83,7 +83,7 @@ Accepting mobile payments for merchants
     Add the dependency to a module:
 
   ```java
-  implementation 'com.mypos:checkoutsdk:1.0.1'
+  implementation 'com.mypos:checkoutsdk:1.0.3'
   ```
   
   ## Requirements
@@ -255,10 +255,26 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 ...
 }
 ```
+## Perform a Reversal
+
+Reversal a payment requires that you have the transactionRef of the payment transaction. Check that you have initialized the SDK before attempting to perform a reversal.
+ 
+```Java
+IPCReversal ipcReversal = new IPCReversal();
+ipcReversal.setTransactionRef("");
+ipcReversal.setOnCommandCompleteListener(new IPCReversal.OnCommandCompleteListener() {
+    @Override
+    public void onCommandComplete(String transactionRef) {}
+
+    @Override
+    public void onError(int status) {}
+});
+ipcReversal.sendRequest();
+```
 
  ## Check transaction status
  
- You can choose between the transaction types of Purchase or Refund and to send the order ID of which transaction status needed to be checked. The method will retrieve the transaction type, order ID, transaction status and the transaction reference:
+You can choose between the transaction types of Purchase or Refund and to send the order ID of which transaction status needed to be checked. The method will retrieve the transaction type, order ID, transaction status and the transaction reference:
  
 ```Java
 IPCGetTransactionStatus ipcGetTransactionStatus = new IPCGetTransactionStatus();
