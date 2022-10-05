@@ -83,7 +83,7 @@ Accepting mobile payments for merchants
     Add the dependency to a module:
 
   ```java
-  implementation 'com.mypos:checkoutsdk:1.0.6'
+  implementation 'com.mypos:checkoutsdk:1.2.2'
   ```
   
   ## Requirements
